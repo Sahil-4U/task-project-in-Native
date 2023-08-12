@@ -70,17 +70,16 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: '75%',
         paddingLeft: 15,
-        textTransform: 'uppercase',
         borderWidth: 2,
         borderColor: 'green',
     },
     list: {
         textAlign: 'center',
-        width: '20%',
+        width: 'auto',
         borderWidth: 2,
         borderColor: "orange",
         margin: 5,
-        padding: 2,
+        padding: 6,
     },
     tasksBox: {
         marginLeft: 15,
