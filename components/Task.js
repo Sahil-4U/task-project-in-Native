@@ -19,18 +19,7 @@ const Task = () => {
                 <Button title='add task' onPress={handleInput} />
             </View>
             <Text style={styles.subHeading}>User Tasks:</Text>
-            {
-                data && data.map((val) => {
-                    return (
-                        <View>
-                            <Text>
-                                {val}
-                            </Text>
-                        </View>
-                    )
-                })
 
-            }
         </View>
     )
 }
