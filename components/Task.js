@@ -1,4 +1,4 @@
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native'
+import { View, Text, Button, TextInput, StyleSheet, ScrollView, Pressable } from 'react-native'
 import React, { useState } from 'react'
 
 const Task = () => {
@@ -12,12 +12,17 @@ const Task = () => {
             return;
         }
         setData((prev) => {
-            return [...prev, input]
+            return [...prev, { input, id: Math.random().toString() }]
         });
         setInput("");
     }
     const handleInputChange = (col) => {
         setInput(col);
+    }
+    const handleDelete = (id) => {
+        setData((currentData) => {
+            return currentData.filter((data) => data.id !== id);
+        })
     }
     return (
         <View>
@@ -30,15 +35,25 @@ const Task = () => {
                 <Button title='add task' onPress={handleInput} />
             </View>
             <Text style={styles.subHeading}>User Tasks:</Text>
+
             <View style={styles.tasksBox}>
+                <ScrollView>
+
                 {
-                    data?.map((val, index) => {
-                        return (
-                            <Text key={index} style={styles.list}>{val}</Text>
+
+                        data?.map((val) => {
+                            return (
+                                <Pressable key={val.id} onPress={() => handleDelete(val.id)}>
+                                    <Text style={styles.list}>{val.input}</Text>
+                                </Pressable>
                         )
-                    })
+                        })
+
                 }
+                </ScrollView>
+
             </View> 
+
         </View>
     )
 }
@@ -74,18 +89,18 @@ const styles = StyleSheet.create({
         borderColor: 'green',
     },
     list: {
+
         textAlign: 'center',
-        width: 'auto',
         borderWidth: 2,
         borderColor: "orange",
         margin: 5,
         padding: 6,
+        backgroundColor: 'green',
+        color: 'white',
+        fontSize: 20,
     },
     tasksBox: {
-        marginLeft: 15,
-        flexDirection: 'row',
-        alignItems: 'center',
-        flexWrap: 'wrap-reverse',
+        margin: 8,
     }
 })
 export default Task;
