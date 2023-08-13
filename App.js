@@ -1,4 +1,4 @@
-import { Modal, View, Text, StyleSheet, Button } from 'react-native';
+import { Modal, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Task from './components/Task';
 import { useState } from 'react';
 
@@ -22,10 +22,9 @@ export default function App() {
       </Modal>
       <View style={styles.textView}>
         <Text>Want to write some todo--</Text>
-        <Button
-          title='todo'
-          onPress={handleModal}
-        />
+        <TouchableOpacity style={styles.btn} onPress={handleModal}>
+          <Text style={styles.btnText}>todo</Text>
+        </TouchableOpacity>
       </View>
 
     </View>
@@ -45,6 +44,17 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginHorizontal: 20,
   },
+  btn: {
+    width: 120,
+    backgroundColor: 'blue', // Example background color
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  btnText: {
+    color: 'white', // Example text color
+    textAlign: 'center',
+  }
 
 })
 
