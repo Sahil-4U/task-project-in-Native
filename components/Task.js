@@ -37,7 +37,7 @@ const Task = () => {
             <Text style={styles.subHeading}>User Tasks:</Text>
 
             <View style={styles.tasksBox}>
-                <ScrollView>
+
 
                 {
 
@@ -50,7 +50,7 @@ const Task = () => {
                         })
 
                 }
-                </ScrollView>
+
 
             </View> 
 
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
         color: 'white',
         fontSize: 20,
+        borderRadius: 10,
     },
     tasksBox: {
         margin: 8,
